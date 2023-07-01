@@ -1,8 +1,9 @@
 
-import { PresentationExchange } from "../types/temp";
-import { Example1, Example1_IdDifferentType, Example1_InputDescriptorsWrongType, Example1_MissingId, Example1_MissingInputDescriptors, Example1_WithName, Example1_WithPurpose, Example1_WithBadName, Example1_WithBadPurpose, Example1_WithFormat, Example1_WithBadFormat } from "./fixtures/Example1";
+import { PresentationExchange } from "../../types/temp";
+import { Example1, Example1_BadId, Example1_BadInputDescriptors, Example1_MissingId, Example1_MissingDescriptors, Example1_WithName, Example1_WithPurpose, Example1_WithBadName, Example1_WithBadPurpose, Example1_WithFormat, Example1_WithBadFormat } from "../fixtures/Example1";
 
-describe('Presentation Definition - Parsing', () => {
+describe('Parsing: Input Descriptor', () => {
+    // TODO: update all of this
 
     let generatorOptions: any;
     let util: PresentationExchange;
@@ -35,7 +36,7 @@ describe('Presentation Definition - Parsing', () => {
 
         it('MUST be of type string (negative)', async () => {
             await expect(
-                util.generate(Example1_IdDifferentType, generatorOptions)
+                util.generate(Example1_BadId, generatorOptions)
             )
             .rejects
             .toThrowError();
@@ -58,7 +59,7 @@ describe('Presentation Definition - Parsing', () => {
 
         it('MUST be present (negative)', async () => {
             await expect(
-                util.generate(Example1_MissingInputDescriptors, generatorOptions)
+                util.generate(Example1_MissingDescriptors, generatorOptions)
             )
             .rejects
             .toThrowError();
@@ -66,7 +67,7 @@ describe('Presentation Definition - Parsing', () => {
 
         it('MUST be of type string (negative)', async () => {
             await expect(
-                util.generate(Example1_InputDescriptorsWrongType, generatorOptions)
+                util.generate(Example1_BadInputDescriptors, generatorOptions)
             )
             .rejects
             .toThrowError();

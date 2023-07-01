@@ -41,7 +41,7 @@ export const Example1_MissingId = {
         }
     ]
 };
-export const Example1_IdDifferentType = {
+export const Example1_BadId = {
     id: 100,
     input_descriptors: [
         {
@@ -63,10 +63,10 @@ export const Example1_IdDifferentType = {
         }
     ]
 };
-export const Example1_MissingInputDescriptors = {
+export const Example1_MissingDescriptors = {
     id: "32f54163-7166-48f1-93d8-ff217bdb0653"
 };
-export const Example1_InputDescriptorsWrongType = {
+export const Example1_BadInputDescriptors = {
     id: "32f54163-7166-48f1-93d8-ff217bdb0653",
     input_descriptors: "banking_input_1"
 };

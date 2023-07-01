@@ -23,6 +23,13 @@ TODO: how to ensure these stay up to date?
 1. Roundtrip parsing of objects:
   - when given a serialized object, you don't mess it up and you throw an error when expected
   - TODO: check how vc-test-suite does this
+  - PD
+    - input_descriptor
+    - ...
+  - PS
+    - ...
 2. PD to PS:
   - when given a PD, you give a PS that doesn't suck (meets constraints, etc)
 3. "Generate" checks -- call schema validate against objects passed in
+
+TODO: what to name callee? parsePD, etc?
