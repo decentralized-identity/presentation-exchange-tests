@@ -15,19 +15,19 @@ describe('Parsing: Presentation Submission', () => {
     describe('`id` properties', () => {
         it('MUST be present', async () => {
 
-            const result = await util.generate(Example2, generatorOptions);
+            const result = await util.parsePresentationSubmission(Example2, generatorOptions);
             expect(result).toHaveProperty('id');
           });
 
         it('MUST be of type string', async () => {
-            const result = await util.generate(Example2, generatorOptions);
+            const result = await util.parsePresentationSubmission(Example2, generatorOptions);
             expect(typeof result.id).toBe('string');
         });
 
 
         it('MUST be present (negative)', async () => {
             await expect(
-                util.generate(Example2_MissingId, generatorOptions)
+                util.parsePresentationSubmission(Example2_MissingId, generatorOptions)
             )
             .rejects
             .toThrowError();
@@ -35,7 +35,7 @@ describe('Parsing: Presentation Submission', () => {
 
         it('MUST be of type string (negative)', async () => {
             await expect(
-                util.generate(Example2_BadId, generatorOptions)
+                util.parsePresentationSubmission(Example2_BadId, generatorOptions)
             )
             .rejects
             .toThrowError();
@@ -45,12 +45,12 @@ describe('Parsing: Presentation Submission', () => {
      describe('`definition_id` properties', () => {
         it('MUST be present', async () => {
 
-            const result = await util.generate(Example2, generatorOptions);
+            const result = await util.parsePresentationSubmission(Example2, generatorOptions);
             expect(result).toHaveProperty('input_descriptors');
           });
 
         it('MUST be of type array of InputDescriptor objects', async () => {
-            const result = await util.generate(Example2, generatorOptions);
+            const result = await util.parsePresentationSubmission(Example2, generatorOptions);
             expect(typeof result.input_descriptors).toBe('array');
             // TODO: check typeof each element in array
         });
@@ -58,7 +58,7 @@ describe('Parsing: Presentation Submission', () => {
 
         it('MUST be present (negative)', async () => {
             await expect(
-                util.generate(Example2_MissingDefinitionId, generatorOptions)
+                util.parsePresentationSubmission(Example2_MissingDefinitionId, generatorOptions)
             )
             .rejects
             .toThrowError();
@@ -66,7 +66,7 @@ describe('Parsing: Presentation Submission', () => {
 
         it('MUST be of type string (negative)', async () => {
             await expect(
-                util.generate(Example2_BadDefinitionId, generatorOptions)
+                util.parsePresentationSubmission(Example2_BadDefinitionId, generatorOptions)
             )
             .rejects
             .toThrowError();
@@ -75,19 +75,19 @@ describe('Parsing: Presentation Submission', () => {
 
      describe('`descriptor_map` properties', () => {
         it('MUST be present', async () => {
-            const result = await util.generate(Example2, generatorOptions);
+            const result = await util.parsePresentationSubmission(Example2, generatorOptions);
             expect(result).toHaveProperty('descriptor_map');
           });
 
         it('MUST be of type TODO', async () => {
-            const result = await util.generate(Example2, generatorOptions);
+            const result = await util.parsePresentationSubmission(Example2, generatorOptions);
             expect(typeof result.name).toBe('string');
         });
 
 
         it('MUST be present (negative)', async () => {
             await expect(
-                util.generate(Example2_MissingDescriptorMap, generatorOptions)
+                util.parsePresentationSubmission(Example2_MissingDescriptorMap, generatorOptions)
             )
             .not
             .toThrowError();
@@ -95,7 +95,7 @@ describe('Parsing: Presentation Submission', () => {
 
         it('MUST be of type TODO (negative)', async () => {
             await expect(
-                util.generate(Example2_BadDescriptorMap, generatorOptions)
+                util.parsePresentationSubmission(Example2_BadDescriptorMap, generatorOptions)
             )
             .rejects
             .toThrowError();

@@ -15,19 +15,19 @@ describe('Parsing: Input Descriptor', () => {
     describe('`id` properties', () => {
         it('MUST be present', async () => {
 
-            const result = await util.generate(Example3, generatorOptions);
+            const result = await util.parseInputDescriptor(Example3, generatorOptions);
             expect(result).toHaveProperty('id');
           });
 
         it('MUST be of type string', async () => {
-            const result = await util.generate(Example3, generatorOptions);
+            const result = await util.parseInputDescriptor(Example3, generatorOptions);
             expect(typeof result.id).toBe('string');
         });
 
 
         it('MUST be present (negative)', async () => {
             await expect(
-                util.generate(Example3_MissingId, generatorOptions)
+                util.parseInputDescriptor(Example3_MissingId, generatorOptions)
             )
             .rejects
             .toThrowError();
@@ -35,7 +35,7 @@ describe('Parsing: Input Descriptor', () => {
 
         it('MUST be of type string (negative)', async () => {
             await expect(
-                util.generate(Example3_BadId, generatorOptions)
+                util.parseInputDescriptor(Example3_BadId, generatorOptions)
             )
             .rejects
             .toThrowError();
@@ -44,12 +44,12 @@ describe('Parsing: Input Descriptor', () => {
 
      describe('`name` properties', () => {
         it('MAY be present', async () => {
-            const result = await util.generate(Example3_WithName, generatorOptions);
+            const result = await util.parseInputDescriptor(Example3_WithName, generatorOptions);
             expect(result).toHaveProperty('name');
           });
 
         it('if present, MUST be of type string', async () => {
-            const result = await util.generate(Example3_WithName, generatorOptions);
+            const result = await util.parseInputDescriptor(Example3_WithName, generatorOptions);
             expect(typeof result.name).toBe('string');
         });
 
@@ -57,7 +57,7 @@ describe('Parsing: Input Descriptor', () => {
         it('MAY be present (negative)', async () => {
             // expect NOT to throw error (this is a MAY)
             await expect(
-                util.generate(Example3, generatorOptions)
+                util.parseInputDescriptor(Example3, generatorOptions)
             )
             .not
             .toThrowError();
@@ -65,7 +65,7 @@ describe('Parsing: Input Descriptor', () => {
 
         it('if present, MUST be of type string (negative)', async () => {
             await expect(
-                util.generate(Example3_WithBadName, generatorOptions)
+                util.parseInputDescriptor(Example3_WithBadName, generatorOptions)
             )
             .rejects
             .toThrowError();
@@ -74,12 +74,12 @@ describe('Parsing: Input Descriptor', () => {
 
      describe('`purpose` properties', () => {
         it('MAY be present', async () => {
-            const result = await util.generate(Example3_WithPurpose, generatorOptions);
+            const result = await util.parseInputDescriptor(Example3_WithPurpose, generatorOptions);
             expect(result).toHaveProperty('purpose');
           });
 
         it('if present, MUST be of type string', async () => {
-            const result = await util.generate(Example3_WithPurpose, generatorOptions);
+            const result = await util.parseInputDescriptor(Example3_WithPurpose, generatorOptions);
             expect(typeof result.purpose).toBe('string');
         });
 
@@ -87,7 +87,7 @@ describe('Parsing: Input Descriptor', () => {
         it('MAY be present (negative)', async () => {
             // expect NOT to throw error (this is a MAY)
             await expect(
-                util.generate(Example3, generatorOptions)
+                util.parseInputDescriptor(Example3, generatorOptions)
             )
             .not
             .toThrowError();
@@ -95,7 +95,7 @@ describe('Parsing: Input Descriptor', () => {
 
         it('if present, MUST be of type string (negative)', async () => {
             await expect(
-                util.generate(Example3_WithBadPurpose, generatorOptions)
+                util.parseInputDescriptor(Example3_WithBadPurpose, generatorOptions)
             )
             .rejects
             .toThrowError();
@@ -104,12 +104,12 @@ describe('Parsing: Input Descriptor', () => {
 
      describe('`format` properties', () => {
         it('MAY be present', async () => {
-            const result = await util.generate(Example3_WithFormat, generatorOptions);
+            const result = await util.parseInputDescriptor(Example3_WithFormat, generatorOptions);
             expect(result).toHaveProperty('format');
           });
 
         it('if present, MUST be a registered ClaimFormatDesignation -- TODO', async () => {
-            const result = await util.generate(Example3_WithFormat, generatorOptions);
+            const result = await util.parseInputDescriptor(Example3_WithFormat, generatorOptions);
             expect(typeof result.format).toBe('string'); // TODO: update with matcher
         });
 
@@ -117,7 +117,7 @@ describe('Parsing: Input Descriptor', () => {
         it('MAY be present (negative)', async () => {
             // expect NOT to throw error (this is a MAY)
             await expect(
-                util.generate(Example3, generatorOptions)
+                util.parseInputDescriptor(Example3, generatorOptions)
             )
             .not
             .toThrowError();
@@ -125,7 +125,7 @@ describe('Parsing: Input Descriptor', () => {
 
         it('if present, MUST be a registered ClaimFormatDesignation -- TODO', async () => {
             await expect(
-                util.generate(Example3_WithBadFormat, generatorOptions)
+                util.parseInputDescriptor(Example3_WithBadFormat, generatorOptions)
             )
             .rejects
             .toThrowError();
