@@ -1,3 +1,6 @@
+# Presentation Exchange Conformance Tests -- WIP
+
+PE spec: https://identity.foundation/presentation-exchange/
 
 ## Rough Basis
 
@@ -22,4 +25,4 @@ TODO: how to ensure these stay up to date?
   - TODO: check how vc-test-suite does this
 2. PD to PS:
   - when given a PD, you give a PS that doesn't suck (meets constraints, etc)
-3. 
+3. "Generate" checks -- call schema validate against objects passed in
