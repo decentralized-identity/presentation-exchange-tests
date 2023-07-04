@@ -1,5 +1,5 @@
 
-import { PresentationExchange } from "../../types/temp";
+import { PresentationExchange } from "../../types/PEImplementation";
 import { Example1, Example1_BadId, Example1_BadInputDescriptors, Example1_MissingId, Example1_MissingDescriptors, Example1_WithName, Example1_WithPurpose, Example1_WithBadName, Example1_WithBadPurpose, Example1_WithFormat, Example1_WithBadFormat } from "../fixtures/parse/PresentationDefinition";
 
 describe('Parsing: Presentation Definition', () => {
