@@ -28,6 +28,12 @@ TODO: how to ensure these stay up to date?
     - ...
   - PS
     - ...
-2. PD to PS:
-  - when given a PD, you give a PS that doesn't suck (meets constraints, etc)
+2. "Presentation Request" (PD to PS):
+  - when given a PD, you give a PS that meets constraints
+  - examples: issuer constraint, schema constraint
 3. "Generate" checks -- call schema validate against objects passed in
+
+## Calling
+
+- Implement PEImplementation interface
+- Call out exe like vc-test-suite does
