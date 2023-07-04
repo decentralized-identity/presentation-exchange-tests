@@ -16,11 +16,16 @@ Roughly based on VC test suite. Some references:
 
 https://docs.google.com/spreadsheets/d/1h5RVm4dRpJS6576jrK9mD2t4GDP_Z3xNsPXAdSd9wAc/edit#gid=0
 
-TODO: how to ensure these stay up to date?
+ISSUE: How to ensure tests stay up to date. Categories:
+- Schema validation tests in repo
+- Spreadsheet
+- These
 
 ## Types of Tests
 
 ISSUE: these tests assume implementers expose certain interfaces (via code or command line) to provide visibility into the results.  
+
+ISSUE: the "parse" tests could be folded into other tests, which may make sense (the interface is weird), but implementers may appreciate the help. These are slightly more informative than basic JSON schema validation, which we should also include (TODO: separate set of tests? Add them into all tests?) 
 
 1. "Parse": Roundtrip parsing of objects:
   - About": when given a serialized object, you don't mess it up and you throw an error when expected
