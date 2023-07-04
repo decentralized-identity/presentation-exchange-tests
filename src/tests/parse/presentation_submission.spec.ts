@@ -1,6 +1,6 @@
 
 import { PresentationExchange } from "../../types/temp";
-import { Example2, Example2_BadDefinitionId, Example2_BadDescriptorMap, Example2_BadId, Example2_MissingDefinitionId, Example2_MissingDescriptorMap, Example2_MissingId } from "../fixtures/Example2";
+import { Example2, Example2_BadDefinitionId, Example2_BadDescriptorMap, Example2_BadId, Example2_MissingDefinitionId, Example2_MissingDescriptorMap, Example2_MissingId } from "../fixtures/PresentationSubmission";
 
 describe('Parsing: Presentation Submission', () => {
 

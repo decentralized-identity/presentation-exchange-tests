@@ -1,6 +1,6 @@
 
 import { PresentationExchange } from "../../types/temp";
-import { Example3, Example3_BadId, Example3_MissingId, Example3_WithName, Example3_WithBadName, Example3_WithBadPurpose, Example3_WithPurpose, Example3_WithBadFormat, Example3_WithFormat } from "../fixtures/Example3";
+import { Example3, Example3_BadId, Example3_MissingId, Example3_WithName, Example3_WithBadName, Example3_WithBadPurpose, Example3_WithPurpose, Example3_WithBadFormat, Example3_WithFormat } from "../fixtures/parse/InputDescriptor";
 
 describe('Parsing: Input Descriptor', () => {
 
