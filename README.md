@@ -20,18 +20,42 @@ TODO: how to ensure these stay up to date?
 
 ## Types of Tests
 
-1. Roundtrip parsing of objects:
-  - when given a serialized object, you don't mess it up and you throw an error when expected
-  - TODO: check how vc-test-suite does this
-  - PD
-    - input_descriptor
+ISSUE: these tests assume implementers expose certain interfaces (via code or command line) to provide visibility into the results.  
+
+1. "Parse": Roundtrip parsing of objects:
+  - About": when given a serialized object, you don't mess it up and you throw an error when expected
+  - Tests include:
+    - PD
+    - ID (may be merged into above)
+    - PS
+  - Assumed interface: `parse(T): T`
+2. "Presentation Request" (Section 8: Input Evaluation"):
+  - About: When given a PD, you provide a PS that meets conditions
+    - Also validates per #1 PS tests
+  - Tests include: 
+    - issuer constraint
+    - schema constraint
+    - limit disclosure 
     - ...
-  - PS
-    - ...
-2. "Presentation Request" (PD to PS):
-  - when given a PD, you give a PS that meets constraints
-  - examples: issuer constraint, schema constraint
-3. "Generate" checks -- call schema validate against objects passed in
+  - How it works:
+    - Test harness provides PDs and seed VCs 
+    - Implementer sorts through + packages VCs to generate PSs
+  - Assumed interface: `request(PD): PS`
+3. "Processing of submission entries" (Section 6.1)
+  - About: Tests a verifier's processing of submissions
+  - How it works: Test harness passes a submission and ensures verifier matches expected 
+    - Also check 6.2? I.e. verifier rejects submission with unexpected fields?
+  - Assumed interface: `accept(PS): [TBD bespoke result/error format]`
+4. "Generate" checks -- call schema validate against objects passed in
+  - TO DISCUSS: what is the best model for this? Example:
+    - Ask implementer to generate different types of PDs to elicit specific behavior (e.g. PD requesting VC from specific issuer)
+5. Various (for later)
+  - Embed targets
+  - Features
+  - ???
+6. Others
+
+
 
 ## Calling
 

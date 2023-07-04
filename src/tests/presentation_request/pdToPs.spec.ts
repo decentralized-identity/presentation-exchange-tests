@@ -1,5 +1,5 @@
 
-describe('Presentation Definition - PD to PS', () => {
+describe('Presentation Request', () => {
 
   test('Invalid Presentation Submission: Incorrect Definition ID', () => {
     const input = {
