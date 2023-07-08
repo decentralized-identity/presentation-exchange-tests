@@ -1,5 +1,5 @@
 import { PresentationExchange } from "../../types/PEImplementation";
-import { Example1 } from "../fixtures/parse/PresentationDefinition";
+import { Example1 } from "../fixtures/parse/PresentationDefinitionExamples";
 
 describe('Presentation Request: Presentation Submission', () => {
     let generatorOptions: any;
@@ -23,9 +23,9 @@ describe('Presentation Request: Presentation Submission', () => {
                 ]
             }
         };
-        const payload = {}; // TODO
+        const payload = { ...submission, verifiableCredential: {}}; // TODO
         await expect(
-            util.response(definition, submission, payload, generatorOptions)
+            util.response(definition, payload, generatorOptions)
         )
         .rejects
         .toThrowError();

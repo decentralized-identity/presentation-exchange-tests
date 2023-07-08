@@ -1,7 +1,7 @@
 
 import { PresentationExchange } from "../../types/PEImplementation";
-import { Example3, Example3_MissingId, Example3_BadId, Example3_WithName, Example3_WithBadName, Example3_WithPurpose, Example3_WithBadPurpose, Example3_WithFormat, Example3_WithBadFormat } from "../fixtures/parse/InputDescriptor";
-import { Example1, Example1_BadId, Example1_BadInputDescriptors, Example1_MissingId, Example1_MissingDescriptors, Example1_WithName, Example1_WithPurpose, Example1_WithBadName, Example1_WithBadPurpose, Example1_WithFormat, Example1_WithBadFormat, Example1_MultipleInputDescriptors, Example1_MultipleInputDescriptors_DuplicateId, PDWrapper } from "../fixtures/parse/PresentationDefinition";
+import { Example3, Example3_MissingId, Example3_BadId, Example3_WithName, Example3_WithBadName, Example3_WithPurpose, Example3_WithBadPurpose, Example3_WithFormat, Example3_WithBadFormat } from "../fixtures/parse/InputDescriptorExamples";
+import { Example1, Example1_BadId, Example1_BadInputDescriptors, Example1_MissingId, Example1_MissingDescriptors, Example1_WithName, Example1_WithPurpose, Example1_WithBadName, Example1_WithBadPurpose, Example1_WithFormat, Example1_WithBadFormat, Example1_MultipleInputDescriptors, Example1_MultipleInputDescriptors_DuplicateId, PDWrapper } from "../fixtures/parse/PresentationDefinitionExamples";
 
 describe('Parsing: Presentation Definition', () => {
 
@@ -125,7 +125,7 @@ describe('Parsing: Presentation Definition', () => {
                   });
         
                 it('MUST be of type string (negative)', async () => {
-                    pdWrapper.input_descriptors.push(Example1_BadId);
+                    pdWrapper.input_descriptors.push(Example3_BadId);
                     await expect(
                         util.parsePresentationDefinition(pdWrapper, generatorOptions)
                     )

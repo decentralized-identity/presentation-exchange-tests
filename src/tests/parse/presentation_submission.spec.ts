@@ -1,6 +1,6 @@
 
 import { PresentationExchange } from "../../types/PEImplementation";
-import { Example2, Example2_BadDefinitionId, Example2_BadDescriptorMap, Example2_BadId, Example2_MissingDefinitionId, Example2_MissingDescriptorMap, Example2_MissingId } from "../fixtures/parse/PresentationSubmission";
+import { Example2, Example2_BadDefinitionId, Example2_BadDescriptorMap, Example2_BadId, Example2_MissingDefinitionId, Example2_MissingDescriptorMap, Example2_MissingId } from "../fixtures/parse/PresentationSubmissionExamples";
 
 describe('Parsing: Presentation Submission', () => {
 

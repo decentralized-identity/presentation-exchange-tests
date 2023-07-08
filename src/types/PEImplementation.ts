@@ -4,9 +4,8 @@ export interface PEImplementation {
   parsePresentationDefinition(input: any, config: any): Promise<any>;
   parsePresentationSubmission(input: any, config: any): Promise<any>;
   // TODO: instead expose interface to implementation so these can mirror each other?
-  // TODO: should return a wrapper of Presentation Submission
-  request(presentation_definition: any, config: any): Promise<[any, any]>;
-  response(presentation_definition: any, presentation_submission: any, payload: any, config: any): Promise<any>;
+  request(presentationDefinition: any, config: any): Promise<any>;
+  response(presentationDefinition: any, psWrapper: any, config: any): Promise<any>;
 }
 
 export class PresentationExchange implements PEImplementation {
@@ -16,10 +15,10 @@ export class PresentationExchange implements PEImplementation {
   async parsePresentationSubmission(input: any, config: any): Promise<any> {
     throw new Error("Method not implemented.");
   }
-  async request(presentation_definition: any, config: any): Promise<[any, any]> {
+  async request(presentationDefinition: any, config: any): Promise<any> {
     throw new Error("Method not implemented.");
   }
-  async response(presentation_definition: any, presentation_submission: any, payload: any, config: any): Promise<any> {
+  async response(presentationDefinition: any, psWrapper: any, config: any): Promise<any> {
     throw new Error("Method not implemented.");
   }
 }
