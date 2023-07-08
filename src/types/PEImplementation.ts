@@ -3,8 +3,10 @@
 export interface PEImplementation {
   parsePresentationDefinition(input: any, config: any): Promise<any>;
   parsePresentationSubmission(input: any, config: any): Promise<any>;
-  // TODO: just roll this into caller?
-  parseInputDescriptor(input: any, config: any): Promise<any>;
+  // TODO: instead expose interface to implementation so these can mirror each other?
+  // TODO: should return a wrapper of Presentation Submission
+  request(presentation_definition: any, config: any): Promise<[any, any]>;
+  response(presentation_definition: any, presentation_submission: any, payload: any, config: any): Promise<any>;
 }
 
 export class PresentationExchange implements PEImplementation {
@@ -14,7 +16,10 @@ export class PresentationExchange implements PEImplementation {
   async parsePresentationSubmission(input: any, config: any): Promise<any> {
     throw new Error("Method not implemented.");
   }
-  async parseInputDescriptor(input: any, config: any): Promise<any> {
+  async request(presentation_definition: any, config: any): Promise<[any, any]> {
+    throw new Error("Method not implemented.");
+  }
+  async response(presentation_definition: any, presentation_submission: any, payload: any, config: any): Promise<any> {
     throw new Error("Method not implemented.");
   }
 }

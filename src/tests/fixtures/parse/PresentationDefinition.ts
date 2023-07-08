@@ -21,6 +21,98 @@ export const Example1 = {
     ]
 };
 
+export const Example1_MultipleInputDescriptors = {
+  id: "32f54163-7166-48f1-93d8-ff217bdb0653",
+  input_descriptors: [
+    {
+      id: "wa_driver_license",
+      name: "Washington State Business License",
+      purpose: "We can only allow licensed Washington State business representatives into the WA Business Conference",
+      constraints: {
+        fields: [
+          {
+            path: [
+              "$.credentialSubject.dateOfBirth",
+              "$.credentialSubject.dob",
+              "$.vc.credentialSubject.dateOfBirth",
+              "$.vc.credentialSubject.dob"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "citizenship_input",
+      "name": "US Passport",
+      "group": ["A"],
+      "constraints": {
+        "fields": [
+          {
+            "path": ["$.credentialSchema.id", "$.vc.credentialSchema.id"],
+            "filter": {
+              "type": "string",
+              "const": "hub://did:foo:123/Collections/schema.us.gov/passport.json"
+            }
+          },
+          {
+            "path": ["$.credentialSubject.birth_date", "$.vc.credentialSubject.birth_date", "$.birth_date"],
+            "filter": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ]
+      }
+    }
+  ]
+};
+
+export const Example1_MultipleInputDescriptors_DuplicateId = {
+  id: "32f54163-7166-48f1-93d8-ff217bdb0653",
+  input_descriptors: [
+    {
+      id: "wa_driver_license",
+      name: "Washington State Business License",
+      purpose: "We can only allow licensed Washington State business representatives into the WA Business Conference",
+      constraints: {
+        fields: [
+          {
+            path: [
+              "$.credentialSubject.dateOfBirth",
+              "$.credentialSubject.dob",
+              "$.vc.credentialSubject.dateOfBirth",
+              "$.vc.credentialSubject.dob"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wa_driver_license",
+      "name": "US Passport",
+      "group": ["A"],
+      "constraints": {
+        "fields": [
+          {
+            "path": ["$.credentialSchema.id", "$.vc.credentialSchema.id"],
+            "filter": {
+              "type": "string",
+              "const": "hub://did:foo:123/Collections/schema.us.gov/passport.json"
+            }
+          },
+          {
+            "path": ["$.credentialSubject.birth_date", "$.vc.credentialSubject.birth_date", "$.birth_date"],
+            "filter": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ]
+      }
+    }
+  ]
+};
+
 export const Example1_MissingId = {
     input_descriptors: [
       {
@@ -65,6 +157,8 @@ export const Example1_BadId = {
       }
     ]
 };
+
+
 
 export const Example1_MissingDescriptors = {
     id: "32f54163-7166-48f1-93d8-ff217bdb0653"
@@ -217,4 +311,10 @@ export const Example1_WithBadFormat = {
         }
       }
     ]
+};
+
+export const PDWrapper = {
+  id: "32f54163-7166-48f1-93d8-ff217bdb0653",
+  input_descriptors: [
+  ]
 };
