@@ -68,4 +68,4 @@ ISSUE: the "parse" tests could be folded into other tests, which may make sense 
 - Implement PEImplementation interface
 - Call out exe like vc-test-suite does
 - Out of scope: not supporting docker-based execution at this time
-  - counterargument: some implementations might be harder to expose to CLI than to a docker nearby...
+  - counterargument: some implementations might be harder to expose to CLI than to a docker nearby... particularly with [openAPI defs](https://github.com/Sphereon-Opensource/pex-openapi) of those protocol interfaces
