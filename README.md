@@ -27,18 +27,25 @@ ISSUE: these tests assume implementers expose certain interfaces (via code or co
 
 ISSUE: the "parse" tests could be folded into other tests, which may make sense (the interface is weird), but implementers may appreciate the help. These are slightly more informative than basic JSON schema validation, which we should also include (TODO: separate set of tests? Add them into all tests?) 
 
-1. Roundtrip parsing of objects:
-    - About: when given a serialized object, you don't mess it up and you throw an error when expected
-    - Tests include:
-      - PD
-        - ID 
-      - PS
-    - Assumed interface: `parse(T): T`
-    - May need to be "self-serve"/honor system (unless debug interface were defined? implementers already make their own unit tests and they already have test vectors in the same schemata... it might be enough to cover parsing indirectly in the categories below)
-2. Presentation Request (Section 8: Input Evaluation"):
-    - About: When given a PD, you provide a PS that meets conditions
-      - Also validates per #1 PS tests
-    - Tests include: 
+1. Model
+  - About: 
+    - Model tests check well-formed-ness and requirements (TODO)
+    - Called as part of test categories below
+  - Establishes conformance per:
+    - JSON schemas
+    - Other normative statements for relevant models 
+  - Tests cases cover:
+    - Presentation Definition (and sub-models)
+    - Presentation Submission (and sub-models)
+2. Request
+    - About: 
+      - A wallet/agent, given a Presentation Definition, returns a Presentation Submission that meets expected conditions
+      - Also validates #1 (Model) tests
+    - Establishes conformance per:
+        - Section 8: Input Evaluation
+        - JSON schemas
+        - Other normative statements for relevant models 
+    - Tests cases cover: 
       - issuer constraint
       - schema constraint
       - limit disclosure 
@@ -47,12 +54,17 @@ ISSUE: the "parse" tests could be folded into other tests, which may make sense 
       - Test harness provides PDs and seed VCs 
       - Implementer sorts through + packages VCs to generate PSs
     - Assumed interface: `request(PD): PS`
-3. Processing of submission entries (Section 6.1)
-    - About: Tests a verifier's processing of submissions
-    - frame tests as optional in harness?
-    - How it works: Test harness passes a submission and ensures verifier matches expected 
+3. Submit
+    - About:
+      -  A verifier or relying party, on receipt of a Presentation Submission, passes or fails the submission as expected
+      - Also validates #1 (Model) tests
+    - Establishes conformance per:
+        - Section 6.1: Processing of submission entries
+        - JSON schemas
+        - Other normative statements for relevant models 
+    - How it works: Test harness submits a PS and ensures verifier passes/fails the PS as expected 
       - Also check 6.2? I.e. verifier rejects submission with unexpected fields?
-    - Assumed interface: `accept(PS): [TBD bespoke result/error format]`
+    - Assumed interface: `submit(PS): success/fail [TBD bespoke result/error format]`
 4. "Generate" checks -- call schema validate against objects passed in
     - TO DISCUSS: what is the best model for this? Example:
       - Ask implementer to generate different types of PDs to elicit specific behavior (e.g. PD requesting VC from specific issuer)
