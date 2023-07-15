@@ -75,6 +75,12 @@ ISSUE: the "parse" tests could be folded into other tests, which may make sense 
     - ???
 6. Others?
 
+TODO: Need to create a structured definition for test cases, e.g. given input(s) xyz, expect abc. Options
+- spreadsheet lists normative statements. For each row
+  - link to test (code) and test data, and enter expectation (pass/fail/more?)
+- Global e2e, divided into request and submit categories. For each row
+  - link to single e2e test (code) and dir with test data. Enter expectation (pass/fail/more?)
+
 
 ## How implementations can interact with this
 
