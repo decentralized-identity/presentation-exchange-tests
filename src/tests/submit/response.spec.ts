@@ -46,5 +46,18 @@ test('Invalid Presentation Definition: Missing ID', () => {
   // Example: expect(yourImplementation(input)).toThrowError();
 });
 
+test('Descriptor Map entry has path', () => {
+});
+
+test('Descriptor Map entry has no path (matches the top level of the Embed Target)', () => {
+});
+
+test('Descriptor Map entry has path_nested', () => {
+});
+
+test('Submitted formats do not match?', () => {
+});
+
+
 
 });

@@ -65,6 +65,7 @@ ISSUE: the "parse" tests could be folded into other tests, which may make sense 
     - How it works: Test harness submits a PS and ensures verifier passes/fails the PS as expected 
       - Also check 6.2? I.e. verifier rejects submission with unexpected fields?
     - Assumed interface: `submit(PS): success/fail [TBD bespoke result/error format]`
+      - Note: could request the implementation return the Field Query Result
 4. "Generate" checks -- call schema validate against objects passed in
     - TO DISCUSS: what is the best model for this? Example:
       - Ask implementer to generate different types of PDs to elicit specific behavior (e.g. PD requesting VC from specific issuer)
