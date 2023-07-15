@@ -34,6 +34,7 @@ ISSUE: the "parse" tests could be folded into other tests, which may make sense 
         - ID 
       - PS
     - Assumed interface: `parse(T): T`
+    - May need to be "self-serve"/honor system (unless debug interface were defined? implementers already make their own unit tests and they already have test vectors in the same schemata... it might be enough to cover parsing indirectly in the categories below)
 2. Presentation Request (Section 8: Input Evaluation"):
     - About: When given a PD, you provide a PS that meets conditions
       - Also validates per #1 PS tests
@@ -48,6 +49,7 @@ ISSUE: the "parse" tests could be folded into other tests, which may make sense 
     - Assumed interface: `request(PD): PS`
 3. Processing of submission entries (Section 6.1)
     - About: Tests a verifier's processing of submissions
+    - frame tests as optional in harness?
     - How it works: Test harness passes a submission and ensures verifier matches expected 
       - Also check 6.2? I.e. verifier rejects submission with unexpected fields?
     - Assumed interface: `accept(PS): [TBD bespoke result/error format]`
@@ -66,3 +68,4 @@ ISSUE: the "parse" tests could be folded into other tests, which may make sense 
 - Implement PEImplementation interface
 - Call out exe like vc-test-suite does
 - Out of scope: not supporting docker-based execution at this time
+  - counterargument: some implementations might be harder to expose to CLI than to a docker nearby... particularly with [openAPI defs](https://github.com/Sphereon-Opensource/pex-openapi) of those protocol interfaces
